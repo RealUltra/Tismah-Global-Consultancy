@@ -29,9 +29,9 @@ const ServicesSection = () => {
         Our Services
       </Typography>
 
-      <Box className="!flex flex-col md:flex-row !gap-8">
+      <Box className="!flex !flex-row !flex-wrap !gap-8">
         {services.map((s) => (
-          <Card className="!flex !flex-col !w-full !px-4 !py-4 !gap-4 !justify-between !mx-auto">
+          <Card className="!flex !flex-col !max-w-xs !px-4 !py-4 !gap-4 !justify-between !mx-auto !rounded-xl">
             <Typography className="!font-bold !text-lg !text-center !my-auto !text-lime-700 uppercase">
               {s.name}
             </Typography>
