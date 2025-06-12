@@ -2,8 +2,10 @@ import React from "react";
 import NavBar from "./NavBar";
 import HeroSection from "./HeroSection";
 import ServicesSection from "./ServicesSection";
-import WhyChooseUsSection from "./WhyChooseUsSection";
+import WhyUsSection from "./WhyUsSection";
 import ReviewsSection from "./ReviewsSection";
+import PricingCTA from "./PricingCTA";
+import Footer from "./Footer";
 
 const HomePage = () => {
   return (
@@ -11,8 +13,10 @@ const HomePage = () => {
       <NavBar />
       <HeroSection />
       <ServicesSection />
-      <WhyChooseUsSection />
+      <WhyUsSection />
       <ReviewsSection />
+      <PricingCTA />
+      <Footer />
     </>
   );
 };

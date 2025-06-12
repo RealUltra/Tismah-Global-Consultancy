@@ -6,7 +6,7 @@ interface ReasonInfo {
   description: string;
 }
 
-const WhyChooseUsSection = () => {
+const WhyUsSection = () => {
   const reasons: ReasonInfo[] = [
     {
       title: "Experienced Global Advisors",
@@ -44,8 +44,11 @@ const WhyChooseUsSection = () => {
         </Box>
 
         <Box className="!flex !flex-row !flex-wrap !justify-center !gap-8 !px-8">
-          {reasons.map((s) => (
-            <Card className="!flex !flex-col !max-w-md !px-4 !py-6 !gap-4 !justify-between !rounded-xl">
+          {reasons.map((s, index) => (
+            <Card
+              key={index}
+              className="!flex !flex-col !max-w-md !px-4 !py-6 !gap-4 !justify-between !rounded-xl"
+            >
               <Typography className="!font-bold !text-lg !mt-auto !text-lime-700">
                 {s.title}
               </Typography>
@@ -58,4 +61,4 @@ const WhyChooseUsSection = () => {
   );
 };
 
-export default WhyChooseUsSection;
+export default WhyUsSection;
