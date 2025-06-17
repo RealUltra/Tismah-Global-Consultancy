@@ -19,7 +19,7 @@ interface ContactOption {
 const GetInTouchSection = () => {
   const contactOptions: ContactOption[] = [
     {
-      icon: PhoneIcon,
+      icon: EmailIcon,
       title: "Email Us",
       caption: "Send us an email anytime.",
       contact: "info@tismah.com",
