@@ -1,9 +1,16 @@
 import { Email as EmailIcon, Phone as PhoneIcon } from "@mui/icons-material";
 import { Box, Button, MenuItem, Typography } from "@mui/material";
 import React from "react";
+import Link from "next/link";
 
 const Footer = () => {
-  const quickLinks = ["Home", "Pricing", "FAQ", "Contact", "Book Now"];
+  const quickLinks = [
+    { label: "Home", path: "/" },
+    { label: "Pricing", path: "/pricing" },
+    { label: "FAQ", path: "/faq" },
+    { label: "Contact", path: "/contact" },
+    { label: "Book Now", path: "/book" },
+  ];
 
   return (
     <Box className="!bg-gray-200">
@@ -22,13 +29,15 @@ const Footer = () => {
             Quick Links
           </Typography>
           <Box className="!flex flex-col">
-            {quickLinks.map((text, index) => (
+            {quickLinks.map((item, i) => (
               <MenuItem
-                key={index}
+                key={i}
                 className="!text-sm !normal-case !px-0 !text-gray-500 hover:text-lime-600! hover:bg-transparent!"
+                component={Link}
+                href={item.path}
                 disableRipple
               >
-                {text}
+                {item.label}
               </MenuItem>
             ))}
           </Box>

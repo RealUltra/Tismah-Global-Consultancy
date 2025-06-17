@@ -18,10 +18,21 @@ import {
   Menu as MenuIcon,
 } from "@mui/icons-material";
 
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+
 const NavBar = () => {
+  const pathname = usePathname();
+
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  const navItems = ["Home", "Book a Consult", "Pricing", "FAQ", "Contact"];
+  const navItems = [
+    { label: "Home", path: "/" },
+    { label: "Book a Consult", path: "/book" },
+    { label: "Pricing", path: "/pricing" },
+    { label: "FAQ", path: "/faq" },
+    { label: "Contact", path: "/contact" },
+  ];
 
   return (
     <AppBar className="!sticky !bg-white !h-20 !grid">
@@ -38,7 +49,9 @@ const NavBar = () => {
               <MenuItem
                 key={i}
                 className="!text-sm !font-semibold !px-0"
-                selected={i == 0}
+                component={Link}
+                href={item.path}
+                selected={pathname === item.path}
                 disableRipple
                 sx={{
                   color: "black",
@@ -54,7 +67,7 @@ const NavBar = () => {
                   },
                 }}
               >
-                {item}
+                {item.label}
               </MenuItem>
             );
           })}
@@ -96,7 +109,9 @@ const NavBar = () => {
                 <MenuItem
                   key={i}
                   className="!text-sm !font-semibold !rounded-lg"
-                  selected={i == 0}
+                  component={Link}
+                  href={item.path}
+                  selected={pathname === item.path}
                   disableRipple
                   sx={{
                     color: "black",
@@ -113,7 +128,7 @@ const NavBar = () => {
                     },
                   }}
                 >
-                  {item}
+                  {item.label}
                 </MenuItem>
               );
             })}

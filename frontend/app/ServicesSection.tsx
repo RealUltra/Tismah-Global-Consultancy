@@ -24,7 +24,10 @@ const ServicesSection = () => {
   ];
 
   return (
-    <Box className="!flex !flex-col !gap-8 !mx-auto !max-w-6xl !px-8 !pb-16">
+    <section
+      id="services"
+      className="!flex !flex-col !gap-8 !mx-auto !max-w-6xl !px-8 !pb-16 !scroll-mt-32"
+    >
       <Typography className="!text-3xl !font-bold !text-center">
         Our Services
       </Typography>
@@ -45,7 +48,7 @@ const ServicesSection = () => {
           </Card>
         ))}
       </Box>
-    </Box>
+    </section>
   );
 };
 
