@@ -1,8 +1,13 @@
+"use client";
+
 import { Box, Button, Typography } from "@mui/material";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
+import BookingTypeModal from "./BookingTypeModal";
 
 const PricingCTA = () => {
+  const [modalOpen, setModalOpen] = useState<boolean>(false);
+
   return (
     <Box className="!mt-16 !bg-green-900 !px-12 !py-16 !flex flex-col !justify-center">
       <Box className="!flex flex-col !gap-6 !mx-auto !max-w-6xl !text-white">
@@ -17,8 +22,7 @@ const PricingCTA = () => {
         <Box className="flex flex-wrap !gap-2 md:gap-4! !mx-auto !mt-4">
           <Button
             className="!rounded-4xl !bg-lime-600 !text-white !font-semibold !text-xl !px-8 !py-4 !mx-auto !w-full md:w-auto! !normal-case"
-            component={Link}
-            href="/book"
+            onClick={() => setModalOpen(true)}
           >
             Book Now
           </Button>
@@ -31,6 +35,13 @@ const PricingCTA = () => {
           </Button>
         </Box>
       </Box>
+
+      {modalOpen && (
+        <BookingTypeModal
+          open={modalOpen}
+          onClose={() => setModalOpen(false)}
+        />
+      )}
     </Box>
   );
 };

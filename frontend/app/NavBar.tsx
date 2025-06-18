@@ -20,15 +20,27 @@ import {
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import BookingTypeModal from "./BookingTypeModal";
+
+interface NavItem {
+  label: string;
+  path: string;
+  onClick?: () => void;
+}
 
 const NavBar = () => {
   const pathname = usePathname();
 
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState<boolean>(false);
+  const [modalOpen, setModalOpen] = useState<boolean>(false);
 
-  const navItems = [
+  const navItems: NavItem[] = [
     { label: "Home", path: "/" },
-    { label: "Book a Consult", path: "/book" },
+    {
+      label: "Book a Consult",
+      path: "/book",
+      onClick: () => setModalOpen(true),
+    },
     { label: "Pricing", path: "/pricing" },
     { label: "FAQ", path: "/faq" },
     { label: "Contact", path: "/contact" },
@@ -49,9 +61,13 @@ const NavBar = () => {
               <MenuItem
                 key={i}
                 className="!text-sm !font-semibold !px-0"
-                component={Link}
-                href={item.path}
-                selected={pathname === item.path}
+                component={item.onClick === undefined ? Link : "li"}
+                href={item.onClick === undefined ? item.path : undefined}
+                onClick={item.onClick}
+                selected={
+                  pathname === item.path ||
+                  (item.path !== "/" && pathname.startsWith(item.path))
+                }
                 disableRipple
                 sx={{
                   color: "black",
@@ -109,9 +125,13 @@ const NavBar = () => {
                 <MenuItem
                   key={i}
                   className="!text-sm !font-semibold !rounded-lg"
-                  component={Link}
-                  href={item.path}
-                  selected={pathname === item.path}
+                  component={item.onClick === undefined ? Link : "li"}
+                  href={item.onClick === undefined ? item.path : undefined}
+                  onClick={item.onClick}
+                  selected={
+                    pathname === item.path ||
+                    (item.path !== "/" && pathname.startsWith(item.path))
+                  }
                   disableRipple
                   sx={{
                     color: "black",
@@ -155,6 +175,13 @@ const NavBar = () => {
           </Box>
         </Drawer>
       </Toolbar>
+
+      {modalOpen && (
+        <BookingTypeModal
+          open={modalOpen}
+          onClose={() => setModalOpen(false)}
+        />
+      )}
     </AppBar>
   );
 };

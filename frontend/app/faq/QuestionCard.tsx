@@ -43,7 +43,7 @@ const QuestionCard = ({ question, answer }: Props) => {
           </Box>
 
           {showAnswer && (
-            <span className="!text-sm !text-gray-600">{answer}</span>
+            <span className="!text-sm !text-gray-600 !pr-8">{answer}</span>
           )}
         </CardContent>
       </CardActionArea>
