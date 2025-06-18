@@ -1,15 +1,6 @@
 "use client";
 
-import { ExpandMore as ExpandMoreIcon } from "@mui/icons-material";
-import {
-  Box,
-  Card,
-  CardActionArea,
-  CardContent,
-  Divider,
-  IconButton,
-  Typography,
-} from "@mui/material";
+import { Box, Divider, Typography } from "@mui/material";
 import React from "react";
 import QuestionCard from "./QuestionCard";
 
@@ -24,7 +15,7 @@ interface Question {
 }
 
 const QuestionsSection = () => {
-  const categories = [
+  const categories: Category[] = [
     {
       title: "Academic Consultancy",
       questions: [
@@ -91,16 +82,16 @@ const QuestionsSection = () => {
 
   return (
     <Box className="!flex flex-col !mx-auto !max-w-4xl gap-16 !px-8 !pb-8">
-      {categories.map((c) => (
-        <Box className="!flex flex-col gap-8">
+      {categories.map((c, i) => (
+        <Box key={i} className="!flex flex-col gap-8">
           <Box className="!flex flex-col gap-4">
             <Typography className="!font-bold !text-2xl">{c.title}</Typography>
             <Divider />
           </Box>
 
           <Box className="!flex flex-col gap-4">
-            {c.questions.map((q) => (
-              <QuestionCard question={q.question} answer={q.answer} />
+            {c.questions.map((q, j) => (
+              <QuestionCard key={j} question={q.question} answer={q.answer} />
             ))}
           </Box>
         </Box>
