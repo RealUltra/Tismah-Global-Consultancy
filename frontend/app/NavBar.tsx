@@ -117,7 +117,7 @@ const NavBar = () => {
                     color: "black",
                     "&.Mui-selected": {
                       backgroundColor: "rgba(0, 255, 0, 0.15)",
-                      color: "#65a30d",
+                      color: "#4d7c0f",
                     },
                     "&:hover": {
                       backgroundColor: "transparent",

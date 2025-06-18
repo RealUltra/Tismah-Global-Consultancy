@@ -1,4 +1,5 @@
 import { Box, Button, Typography } from "@mui/material";
+import Link from "next/link";
 import React from "react";
 
 const HeroSection = () => {
@@ -15,7 +16,11 @@ const HeroSection = () => {
         </p>
 
         <Box className="flex flex-wrap !gap-2 md:gap-4! !mx-auto !mt-4">
-          <Button className="!rounded-4xl !bg-lime-600 !text-white !font-semibold !text-xl !px-8 !py-4 !mx-auto !w-full md:w-auto! !normal-case">
+          <Button
+            className="!rounded-4xl !bg-lime-600 !text-white !font-semibold !text-xl !px-8 !py-4 !mx-auto !w-full md:w-auto! !normal-case"
+            component={Link}
+            href="/book"
+          >
             Book Now
           </Button>
           <Button

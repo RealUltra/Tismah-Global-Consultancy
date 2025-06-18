@@ -1,9 +1,11 @@
 import { Box, Button, Card, Typography } from "@mui/material";
+import Link from "next/link";
 import React from "react";
 
 interface ServiceInfo {
   name: string;
   description: string;
+  path: string;
 }
 
 const ServicesSection = () => {
@@ -12,14 +14,17 @@ const ServicesSection = () => {
       name: "Academic Consultancy",
       description:
         "Guidance for university applications, scholarships and essays.",
+      path: "/book/academic",
     },
     {
       name: "Outbound Consultancy",
       description: "Support with immigration, visas, and relocation.",
+      path: "/book/outbound",
     },
     {
       name: "Entrepreneurial Consultancy",
       description: "Help with launching, funding, and scaling your venture.",
+      path: "/book/business",
     },
   ];
 
@@ -42,7 +47,11 @@ const ServicesSection = () => {
               {s.name}
             </Typography>
             <p className="text-center text-md">{s.description}</p>
-            <Button className="!rounded-4xl !bg-white !text-lime-600 !border-1 !border-lime-600 !w-fit !px-4 !mx-auto !my-2 !text-xs">
+            <Button
+              className="!rounded-4xl !bg-white !text-lime-600 !border-1 !border-lime-600 !w-fit !px-4 !mx-auto !my-2 !text-xs"
+              component={Link}
+              href={s.path}
+            >
               Learn More
             </Button>
           </Card>

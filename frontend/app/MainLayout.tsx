@@ -10,9 +10,7 @@ const MainLayout = (props: Props) => {
   return (
     <div className="min-h-screen flex flex-col">
       <NavBar />
-
       <main className="flex-grow">{props.children}</main>
-
       <Footer />
     </div>
   );
