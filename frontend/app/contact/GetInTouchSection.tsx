@@ -47,7 +47,7 @@ const GetInTouchSection = () => {
   ];
 
   return (
-    <Box className="!flex flex-col !max-w-6xl !mx-auto !my-auto gap-8 !px-4 !py-16">
+    <Box className="!flex flex-col !max-w-6xl !mx-auto !my-auto gap-16 !px-4 !py-16">
       <Box className="!flex flex-col text-center gap-4">
         <Typography className="!text-[clamp(2.25rem,5vw,3rem)] !font-bold">
           Get In Touch
